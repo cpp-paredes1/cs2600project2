@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=
+CFLAGS=-Iinclude
 ifeq ($(OS), Windows_NT) # Windows
 	DELETE=del
 else
