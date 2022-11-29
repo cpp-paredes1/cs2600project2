@@ -11,8 +11,10 @@ int main() {
 	printf("Number of days: %d\n", daysNum);
 		//Time of departure
 	int *departTime = timeInput("Enter the time of your departure\n");
-	printf("Departure time: %d:%d%d\n", departTime[0], departTime[1], departTime[2]);
+	printf("Departure time: %d:%d\n", departTime[0], departTime[1]);
 		//Time of arrival
+	int *arriveTime = timeInput("Enter the time of your arrival\n");
+	printf("Departure time: %d:%d\n", arriveTime[0], arriveTime[1]);
 		//Airfare cost
 		//Car rental costs
 		//Miles driven in private vehicle
