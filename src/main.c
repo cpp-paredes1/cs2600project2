@@ -7,7 +7,11 @@ int main() {
 	
 	//Ask for:
 		//# of days
+	int daysNum = integerInputPositive("Input number of days spent on trip\n", 0);
+	printf("Number of days: %d\n", daysNum);
 		//Time of departure
+	int *departTime = timeInput("Enter the time of your departure\n");
+	printf("Departure time: %d:%d%d\n", departTime[0], departTime[1], departTime[2]);
 		//Time of arrival
 		//Airfare cost
 		//Car rental costs
