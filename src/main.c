@@ -4,7 +4,7 @@
 #include "input.h"
 #include "CarExpenseCalc.h"
 #include "PlaneExpenseCalc.h"
-
+extern int test();
 int main(int argc, char const *argv[]) {
 	// Perform unit tests if first argument is "test"
 	if (argc == 2 && strcmp(argv[1], "test") == 0) {

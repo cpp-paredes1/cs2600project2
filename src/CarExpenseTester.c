@@ -1,0 +1,3 @@
+void testCarExpenses(){
+	double testData;
+}
