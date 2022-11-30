@@ -32,11 +32,20 @@ int main() {
 
 	//Output:
 		//Total expenses incurred
+		double incurredExpenses = carExpenses;
+		printf("Total expenses incurred: %f\n", incurredExpenses);
 		//Total allowed expenses
+		double allowedExpenses = 0;
 		//If allowed < incurred
 			//The excess (incurred - allowed)
 		//If allowed > incurred
 			//The amount saved (allowed - incurred)
+		if (allowedExpenses < incurredExpenses) {
+
+		}
+		else {
+			
+		}
 
 		
 		
