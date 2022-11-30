@@ -18,7 +18,7 @@ int numDaysTaxi;
 
 double calculateCarExpenses(int numDays){
 	milesDriven = 0;
-	int numRentals = integerInputPositive("How many cars will you rent?: ", 1);
+	int numRentals = integerInputPositive("\nHow many cars will you rent?: ", 1);
 	if(numRentals == 0){
 		printf("Number of rental cars = 0. Assuming the use of a private car.\n");
 		milesDriven = integerInputPositive("How many miles will you drive?: ", 1);
@@ -28,10 +28,11 @@ double calculateCarExpenses(int numDays){
 		printf("How much does Car #%i cost to rent?: ", i);
 		rentalFees += doubleInputPositive("", 1);
 	}
-	
+	printf("\n");	// space them out for visual clarity
 	double totalParkingFees = calculateParkingFees(numDays);
+	printf("\n");	// space them out for visual clarity
 	double totalTaxiFees = calculateTaxiFees(numDays);
-
+	printf("\n");
 	return calculateCarExpensesNoPrompt(rentalFees, milesDriven, totalParkingFees, totalTaxiFees);
 }
 double calculateCarExpensesNoPrompt(double rentalFees, int miles, double parkingFees, double taxiFees){
