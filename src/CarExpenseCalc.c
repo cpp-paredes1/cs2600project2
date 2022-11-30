@@ -22,10 +22,32 @@ double calculateCarExpenses(int numDays){
 		printf("How much does Car #%i cost to rent?: ", i);
 		rentalFees += doubleInputPositive("", 1);
 	}
-	double parkingFees = integerInputPositive("How much will you spend on parking per day?: ", 1);
-	double taxiFees = integerInputPositive("How much will you spend on taxis per day?: ", 1);
-	return calculateCarExpensesNoPrompt(numDays, rentalFees, milesDriven, parkingFees, taxiFees);
+	
+	double totalParkingFees = calculateParkingFees(numDays);
+	double totalTaxiFees = calculateTaxiFees(numDays);
+
+	return calculateCarExpensesNoPrompt(rentalFees, milesDriven, totalParkingFees, totalTaxiFees);
 }
-double calculateCarExpensesNoPrompt(int numDays, double rentalFees, int miles, double parkingFees, double taxiFees){
-	return rentalFees + (miles * pricePerMile) + (parkingFees * numDays) + (taxiFees * numDays);
+double calculateCarExpensesNoPrompt(double rentalFees, int miles, double parkingFees, double taxiFees){
+	return rentalFees + (miles * pricePerMile) + parkingFees + taxiFees;
+}
+double calculateParkingFees(int numDays) {
+	double parkingFees = 0.0f;
+
+	for (int i = 0; i < numDays; i++) {
+		printf("Day %d:\n", i+1);
+		parkingFees = parkingFees + doubleInputPositive("How much will you spend on parking on this day?: ", 1);
+	}
+	
+	return parkingFees;
+}
+double calculateTaxiFees(int numDays) {
+	double taxiFees = 0.0f;
+
+	for (int i = 0; i < numDays; i++) {
+		printf("Day %d:\n", i+1);
+		taxiFees = taxiFees + doubleInputPositive("How much will you spend on taxis on this day?: ", 1);
+	}
+	
+	return taxiFees;
 }
