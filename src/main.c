@@ -4,53 +4,100 @@
 #include "CarExpenseCalc.h"
 
 int main() {
-	// Write program template in here
-	
-	//Ask for:
-		//# of days (check)
-	int daysNum = integerInputPositive("Input number of days spent on trip: ", 0);
-	printf("Number of days: %d\n", daysNum);
-		//Time of departure (check)
-	int *departTime = timeInput("Enter the time of your departure (XX:XX AM/PM): ");
-	printf("Departure time: %.2d:%.2d\n", departTime[0], departTime[1]);
-		//Time of arrival (check)
-	int *arriveTime = timeInput("Enter the time of your arrival (XX:XX AM/PM): ");
-	printf("Departure time: %.2d:%.2d\n", arriveTime[0], arriveTime[1]);
-		//Airfare cost
-		//Car rental costs (check)
-		//Miles driven in private vehicle (check)
-	double carExpenses = calculateCarExpenses(daysNum); //Takes care of rental, private, parking, and taxi
-	printf("Total cost of rentals, private vehicles, parking, and taxis: %f\n", carExpenses);
-		//Conference/Seminar registration fees
-		//For Each Day:
-			//Parking fee amount (check, see above)
-			//Taxi fees (check, see above)
-			//For Each Meal:
-				//Meal cost
-	
-	//Run methods that calculate expenses
 
-	//Output:
-		//Total expenses incurred
-	double incurredExpenses = carExpenses;
-	printf("Total expenses incurred: %f\n", incurredExpenses);
-		//Total allowed expenses
-	double allowedExpenses = 0;
-	allowedExpenses += calculateCarExpensesCovered();
-	printf("Total allowed expenses: %f\n", allowedExpenses);
-		//If allowed < incurred
-			//The excess (incurred - allowed)
-		//If allowed > incurred
-			//The amount saved (allowed - incurred)
-	if (allowedExpenses < incurredExpenses) {
-		printf("Excess cost (to be paid by employee): %f", incurredExpenses - allowedExpenses);
+}
+	
+//Conference or seminar registration fees 
+double calRegCost() {
+	double regFees = 0;
+	int run = 1;
+	while (run == 1) {
+		printf("\nEnter the total amount of registration fee:");
+		scanf("%f", &regFees);
+		if (regFees <= 0) {
+			printf("\nPlease enter a valid amount");
+		}
+		else {
+			return regFees;
+		}
 	}
-	else {
-		printf("Amount of money saved: %f", allowedExpenses - incurredExpenses);
-	} //end if
+}
 
-		
-		
+double hotelCost() {
+	static double costs[2];
+	double cost, totalCost;
+	int run = 1;
+	while (run == 1) {
+		printf("\nEnter hotel cost for one night:");
+		scanf("%f", &cost);
+		if (cost <= 0)
+        {
+            printf("\nPlease enter a valid number (>0)!");
+        }
+        else
+        {
+            if (cost <= 90)
+            {
+                costs[0] = cost;
+                costs[1] = 0;
+            }
+            else
+            {
+                costs[0] = cost;
+                totalCost = cost - 90;
+                costs[1] = totalCost;
+            }
+            return costs;
+        }
+	}
+}
 
-	return EXIT_SUCCESS;
+//calculate breakfast
+double *calBreakfast(double amount)
+{
+    static double costs[2];
+    costs[0] = amount;
+    if (amount <= 9)
+    {
+        costs[1] = 0;
+    }
+    else
+    {
+        amount = amount - 9;
+        costs[1] = amount;
+    }
+    return costs;
+}
+//calculate lunch
+double *calLunch(double amount)
+{
+    static double costs[2];
+    costs[0] = amount;
+    if (amount <= 12)
+    {
+        costs[1] = 0;
+    }
+    else
+    {
+        amount = amount - 12;
+        costs[1] = amount;
+    }
+    return costs;
+}
+
+//calculate dinner
+double *calDinner(double amount)
+{
+    static double costs[2];
+    costs[0] = amount;
+    if (amount <= 16)
+    {
+        costs[1] = 0;
+    }
+    else
+    {
+        amount = amount - 16;
+        costs[1] = amount;
+    }
+    return costs;
 }
