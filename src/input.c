@@ -4,7 +4,8 @@
 #include "input.h"
 
 void clearBuffer() {
-    while (getchar() != '\n'); // Clears buffer to prevent printf output from looping into scanf
+    int c;
+    while ((c = fgetc(stdin)) != EOF && c != '\n'); // Clears buffer to prevent printf output from looping into scanf
 }
 
 int integerInput(char *text) {
@@ -16,8 +17,8 @@ int integerInput(char *text) {
         valid = scanf("%d", &input); // Read option from user
         if (!valid) { 
             printf("Invalid number.\n"); // User entered an invalid number
-            clearBuffer();
         }
+        clearBuffer();
     } while (!valid);
 
     return input;
@@ -31,7 +32,6 @@ int integerInputPositive(char *text, int allowZero) {
         if (input < (allowZero ? 0 : 1)) {
             // User's input was not positive
             printf(allowZero ? "Invalid number (must be positive).\n" : "Invalid number (must be positive, nonzero).\n");
-            clearBuffer();
         }
     } while (input < (allowZero ? 0 : 1));
 
@@ -46,7 +46,6 @@ int integerInputRange(char *text, int min, int max) {
         if (input < min || input > max) {
             // User's input was not in range
             printf("Invalid number (must be between %d and %d).\n", min, max);
-            clearBuffer();
         }
     } while (input < min || input > max);
 
@@ -62,8 +61,8 @@ double doubleInput(char *text) {
         valid = scanf("%lf", &input); // Read option from user
         if (!valid) { 
             printf("Invalid number.\n"); // User entered an invalid double
-            clearBuffer();
         }
+        clearBuffer();
     } while (!valid);
 
     return input;
@@ -77,7 +76,6 @@ double doubleInputPositive(char *text, int allowZero) {
         if (input < (allowZero ? 0 : 1)) {
             // User's input was not positive
             printf(allowZero ? "Invalid number (must be positive).\n" : "Invalid number (must be positive, nonzero).\n");
-            clearBuffer();
         }
     } while (input < (allowZero ? 0 : 1));
 
@@ -92,7 +90,6 @@ double doubleInputRange(char *text, double min, double max) {
         if (input < min || input > max) {
             // User's input was not in range
             printf("Invalid number (must be between %.2f and %.2f).\n", min, max);
-            clearBuffer();
         }
     } while (input < min || input > max);
 
@@ -104,32 +101,27 @@ int *timeInput(char *text) {
     int minute = 0;
     char period[2];
     int valid = 0;
-
+    char input[16];
+    
     do { // Loop until a valid time is entered
         printf(text);
-        valid = scanf("%d:%d %2s", &hour, &minute, period) == 3; // Read option from user
-        if (!valid) { 
-            printf("Invalid time format (format: HH:MM AM/PM).\n"); // User entered an invalid double
-            clearBuffer();
+        fgets(input, 16, stdin); // Read time from user
+        valid = sscanf(input, "%d:%d %c%c", &hour, &minute, &period[0], &period[1]) == 4; // Parse and validate time
+        if (!valid) {
+            printf("Invalid time format (format: HH:MM AM/PM).\n"); // User entered an invalid time
             continue;
         }
 
-        valid = hour >= 1 && hour <= 12 && minute >= 0 && minute <= 60;
+        valid = hour >= 1 && hour <= 12 && minute >= 0 && minute <= 59;
         if (hour < 1 || hour > 12) {
-            printf("Hour is not between 1 and 12.\n");
-            clearBuffer();
-            continue;
+            printf("Hour must be between 1 and 12.\n");
         }
         if (minute < 0 || minute > 59) {
-            printf("Minute is not between 0 and 59.\n");
-            clearBuffer();
-            continue;
+            printf("Minute must be between 0 and 59.\n");
         }
-        if (strcmp(period, "AM") != 0 && strcmp(period, "PM") != 0) {
-            printf("Period is not AM or PM.\n");
+        if ((period[0] != 65 && period[0] != 80) || period[1] != 77) { // strcmp doesn't work for some reason :(
+            printf("Period must be AM or PM.\n");
             valid = 0;
-            clearBuffer();
-            continue;
         }
     } while (!valid);
 
@@ -143,7 +135,7 @@ int *timeInput(char *text) {
     if (hour == 12) {
         hour = 0;
     }
-    if (strcmp(period, "PM") == 0) {
+    if (period[0] == 80) { // PM
         hour += 12; 
     }
 

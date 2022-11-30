@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "input.h"
 #include "CarExpenseCalc.h"
 #include "PlaneExpenseCalc.h"
 
-int main() {
-	// Write program template in here
-	
+int main(int argc, char const *argv[]) {
+	// Perform unit tests if first argument is "test"
+	if (argc == 2 && strcmp(argv[1], "test") == 0) {
+		return test();
+	}
 	//Ask for:
 		//# of days (check)
 	int daysNum = integerInputPositive("Input number of days spent on trip: ", 0);
@@ -51,9 +54,5 @@ int main() {
 	else {
 		printf("Amount of money saved: %f", allowedExpenses - incurredExpenses);
 	} //end if
-
-		
-		
-
 	return EXIT_SUCCESS;
 }
