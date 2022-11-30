@@ -36,6 +36,7 @@ int main() {
 	printf("Total expenses incurred: %f\n", incurredExpenses);
 		//Total allowed expenses
 	double allowedExpenses = 0;
+	allowedExpenses += calculateCarExpensesCovered();
 	printf("Total allowed expenses: %f\n", allowedExpenses);
 		//If allowed < incurred
 			//The excess (incurred - allowed)
