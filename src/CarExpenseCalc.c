@@ -5,9 +5,6 @@
 #include "input.h"
 #include "CarExpenseCalc.h"
 
-extern int integerInputPositive(char*, int);
-extern double doubleInputPositive(char*, int);
-
 const double pricePerMile = 0.27;
 int milesDriven;
 int numRentals;
