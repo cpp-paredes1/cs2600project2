@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "input.h"
 #include "CarExpenseCalc.h"
+#include "PlaneExpenseCalc.h"
 
 int main() {
 	// Write program template in here
@@ -9,16 +10,17 @@ int main() {
 	//Ask for:
 		//# of days (check)
 	int daysNum = integerInputPositive("Input number of days spent on trip: ", 0);
-	printf("Number of days: %d\n", daysNum);
+	printf("Number of days: %d\n\n", daysNum);
 		//Time of departure (check)
 	int *departTime = timeInput("Enter the time of your departure (XX:XX AM/PM): ");
-	printf("Departure time: %.2d:%.2d\n", departTime[0], departTime[1]);
+	printf("Departure time: %002d:%002d\n", departTime[0], departTime[1]);
 		//Time of arrival (check)
 	int *arriveTime = timeInput("Enter the time of your arrival (XX:XX AM/PM): ");
-	printf("Departure time: %.2d:%.2d\n", arriveTime[0], arriveTime[1]);
+	printf("Departure time: %002d:%002d\n\n", arriveTime[0], arriveTime[1]);
 		//Airfare cost
 		//Car rental costs (check)
 		//Miles driven in private vehicle (check)
+	double planeExpenses = calculatePlaneExpenses();
 	double carExpenses = calculateCarExpenses(daysNum); //Takes care of rental, private, parking, and taxi
 	printf("Total cost of rentals, private vehicles, parking, and taxis: %f\n", carExpenses);
 		//Conference/Seminar registration fees
@@ -32,11 +34,12 @@ int main() {
 
 	//Output:
 		//Total expenses incurred
-	double incurredExpenses = carExpenses;
+	double incurredExpenses = 0;
+	incurredExpenses += carExpenses + planeExpenses;
 	printf("Total expenses incurred: %f\n", incurredExpenses);
 		//Total allowed expenses
 	double allowedExpenses = 0;
-	allowedExpenses += calculateCarExpensesCovered();
+	allowedExpenses += calculateCarExpensesCovered() + planeExpenses;
 	printf("Total allowed expenses: %f\n", allowedExpenses);
 		//If allowed < incurred
 			//The excess (incurred - allowed)
