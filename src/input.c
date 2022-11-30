@@ -106,7 +106,7 @@ int *timeInput(char *text) {
     int valid = 0;
 
     do { // Loop until a valid time is entered
-        printf(text);
+        puts(text);
         valid = scanf("%d:%d %2s", &hour, &minute, period) == 3; // Read option from user
         if (!valid) { 
             printf("Invalid time format (format: HH:MM AM/PM).\n"); // User entered an invalid double
