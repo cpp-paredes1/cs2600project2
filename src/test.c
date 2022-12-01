@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+extern void testCarExpenses();
+
 int printTest(char* text, int result) {
     printf("%s: %s\n", text, result ? "PASS" : "FAIL");
     return result;
@@ -7,6 +9,7 @@ int printTest(char* text, int result) {
 
 // Call this function from main if first argument is "test"
 int test() {
+    testCarExpenses();
     printf("Performing unit tests...\n");
     printf("---------------\n");
     int trueTest = printTest("This should pass", 1 == 1);

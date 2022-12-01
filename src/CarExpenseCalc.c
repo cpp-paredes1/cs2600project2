@@ -67,3 +67,6 @@ double calculateTaxiFees(int numDays) {
 double calculateCarExpensesCovered(){
 	return rentalFees + (milesDriven * 0.27) + (numDaysParked * 6) + (numDaysTaxi * 10);
 }
+double calculateCarExpensesCoveredWithParams(double rF, double mD, int nDP, int nDT){
+	return rF + (mD * 0.27) + (nDP * 6) + (nDT * 10);
+}
