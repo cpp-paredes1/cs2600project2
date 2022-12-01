@@ -1,17 +1,22 @@
 #include <stdio.h>
 #include "CarExpenseCalc.h"
-static int coverageTest(int testNum, double args[4], double expected){
+#include "test.h"
+
+int coverageTest(int testNum, double args[4], double expected){
 	double calc = calculateCarExpensesCoveredWithParams(args[0],args[1],args[2],args[3]);
-	printf("Test %i: Expected: %.2f | Result: %.2f | %s\n", testNum+1, calc, expected, calc == expected ? "PASSED." : "FAILED.");
-	return calc == expected;
+	printf("\tTest %i: Expected: %.2f | Result: %.2f", testNum+1, calc, expected);
+	return printTest("", calc == expected);
 }
-static int expenseTest(int testNum, double args[4], double expected){
-	double calc = calculateCarExpensesNoPrompt(args[0],args[1],args[2],args[3]);
-	printf("Test %i: Expected: %.2f | Result: %.2f | %s\n", testNum+1, calc, expected, calc == expected ? "PASSED." : "FAILED.");
-	return calc == expected;
+
+int expenseTest(int testNum, double args[4], double expected){
+	double calc = calculateCarExpensesNoPrompt(args[0], args[1], args[2], args[3]);
+	printf("\tTest %i: Expected: %.2f | Result: %.2f", testNum+1, calc, expected);
+	return printTest("", calc == expected);
 }
-void testCarExpenses(){
-	printf("---- CAR EXPENSE TESTS ----\n");
+
+int testCarExpenses() {
+	printf("CAR EXPENSE TESTS\n");
+	printf("---------------\n");
 	// ---- coverage TESTS -----
 	// rF, mD, nDP, nDT
 	double coverageTestData[][4] = {
@@ -63,5 +68,5 @@ void testCarExpenses(){
 			bad = 1;
 		}
 	}
-	printf("Overall results: %s\n", bad ? "FAILED." : "PASSED.");
+	return !bad;
 }
