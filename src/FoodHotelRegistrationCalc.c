@@ -9,7 +9,7 @@ double calRegCost() {
 	while (run == 1) {
 		printf("\nEnter the total amount of registration fee:");
 		scanf("%lf", &regFees);
-		if (regFees <= 0) {
+		if (regFees < 0) {
 			printf("\nPlease enter a valid amount");
 		}
 		else {
@@ -25,7 +25,7 @@ double *hotelCost() {
 	while (run == 1) {
 		printf("\nEnter hotel cost for one night:");
 		scanf("%lf", &cost);
-	    if (cost <= 0)
+	    if (cost < 0)
         {
             printf("\nPlease enter a valid number (>0)!");
         }
@@ -105,7 +105,7 @@ double *calMealCost(int numOfDays, double time[2])
     int ans;
     int run = 1;
     printf("\nIs this is a first day,last day or middle day of trip?(1:first/3:last/2:middle):");
-    scanf("%d", ans);
+    scanf("%d", &ans);
     switch (ans)
     {
     case 1:
