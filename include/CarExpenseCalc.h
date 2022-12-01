@@ -4,3 +4,5 @@ double calculateParkingFees(int numDays);
 double calculateTaxiFees(int numDays);
 // REQURIES calculateCarExpenses() TO BE CALLED
 double calculateCarExpensesCovered();
+// DOES NOT REQUIRE calculateCarExpenses() TO BE CALLED
+double calculateCarExpensesCoveredWithParams(double rF, double mD, int nDP, int nDT);
