@@ -11,7 +11,7 @@ double regCost() {
 	double regFees = 0;
 	int run = 1;
 	while (run == 1) {
-		printf("\nEnter the total amount of registration fee:");
+		printf("\nEnter the total amount of registration fee: ");
 		scanf("%lf", &regFees);
 		if (regFees < 0) {
 			printf("\nPlease enter a valid amount");
@@ -43,7 +43,7 @@ double *hotelCost() {
 	double cost;
 	int run = 1;
 	while (run == 1) {
-		printf("\nEnter hotel cost for one night:");
+		printf("\nEnter hotel cost for one night: ");
 		scanf("%lf", &cost);
 	    if (cost < 0)
         {
@@ -114,7 +114,7 @@ double *calMealCost(int numOfDays, double time[2])
     static double totalCosts[2];
     int ans;
     int run = 1;
-    printf("\nIs this is a first day,last day or middle day of trip?(1:first/3:last/2:middle):");
+    printf("\nIs this is a first day,last day or middle day of trip?(1:first/3:last/2:middle): ");
     scanf("%d", &ans);
     switch (ans)
     {
@@ -128,11 +128,11 @@ double *calMealCost(int numOfDays, double time[2])
                     run = 1;
                     while (run == 1)
                     {
-                        printf("\nEnter amount for breakfast:");
+                        printf("\nEnter amount for breakfast: ");
                         scanf("%lf", &breakfast);
-                        printf("\nEnter amount for lunch:");
+                        printf("\nEnter amount for lunch: ");
                         scanf("%lf", &lunch);
-                        printf("\nEnter amount for Dinner:");
+                        printf("\nEnter amount for dinner: ");
                         scanf("%lf", &dinner);
                         if (breakfast < 0 || lunch < 0 || dinner < 0)
                         {
@@ -155,9 +155,9 @@ double *calMealCost(int numOfDays, double time[2])
                     run = 1;
                     while (run == 1)
                     {
-                        printf("\nEnter amount for breakfast:");
+                        printf("\nEnter amount for breakfast: ");
                         scanf("%lf", &breakfast);
-                        printf("\nEnter amount for lunch:");
+                        printf("\nEnter amount for lunch: ");
                         scanf("%lf", &lunch);
                         if (breakfast < 0 || lunch < 0)
                         {
@@ -182,7 +182,7 @@ double *calMealCost(int numOfDays, double time[2])
                     run = 1;
                     while (run == 1)
                     {
-                        printf("\nEnter amount for lunch:");
+                        printf("\nEnter amount for lunch: ");
                         scanf("%lf", &lunch);
                         if (lunch < 0)
                         {
@@ -203,9 +203,9 @@ double *calMealCost(int numOfDays, double time[2])
                     run = 1;
                     while (run == 1)
                     {
-                        printf("\nEnter amount for lunch:");
+                        printf("\nEnter amount for lunch: ");
                         scanf("%lf", &lunch);
-                        printf("\nEnter amount for Dinner:");
+                        printf("\nEnter amount for dinner: ");
                         scanf("%lf", &dinner);
                         if (lunch < 0 || dinner < 0)
                         {
@@ -228,7 +228,7 @@ double *calMealCost(int numOfDays, double time[2])
                 run = 1;
                 while (run == 1)
                 {
-                    printf("\nEnter amount for Dinner:");
+                    printf("\nEnter amount for dinner: ");
                     scanf("%lf", &dinner);
                     if (dinner < 0)
                     {
@@ -252,11 +252,11 @@ double *calMealCost(int numOfDays, double time[2])
                 run = 1;
                 while (run == 1)
                 {
-                    printf("\nEnter amount for breakfast:");
+                    printf("\nEnter amount for breakfast: ");
                     scanf("%lf", &breakfast);
-                    printf("\nEnter amount for lunch:");
+                    printf("\nEnter amount for lunch: ");
                     scanf("%lf", &lunch);
-                    printf("\nEnter amount for Dinner:");
+                    printf("\nEnter amount for dinner: ");
                     scanf("%lf", &dinner);
                     if (breakfast < 0 || lunch < 0 || dinner < 0)
                     {
@@ -279,9 +279,9 @@ double *calMealCost(int numOfDays, double time[2])
                 run = 1;
                 while (run == 1)
                 {
-                    printf("\nEnter amount for lunch:");
+                    printf("\nEnter amount for lunch: ");
                     scanf("%lf", &lunch);
-                    printf("\nEnter amount for Dinner:");
+                    printf("\nEnter amount for dinner: ");
                     scanf("%lf", &dinner);
                     if (lunch < 0 || dinner < 0)
                     {
@@ -303,7 +303,7 @@ double *calMealCost(int numOfDays, double time[2])
                 run = 1;
                 while (run == 1)
                 {
-                    printf("\nEnter amount for Dinner:");
+                    printf("\nEnter amount for dinner: ");
                     scanf("%lf", &dinner);
                     if (dinner < 0)
                     {
@@ -325,11 +325,11 @@ double *calMealCost(int numOfDays, double time[2])
         run = 1;
         while (run == 1)
         {
-            printf("\nEnter amount for breakfast:");
+            printf("\nEnter amount for breakfast: ");
             scanf("%lf", &breakfast);
-            printf("\nEnter amount for lunch:");
+            printf("\nEnter amount for lunch: ");
             scanf("%lf", &lunch);
-            printf("\nEnter amount for Dinner:");
+            printf("\nEnter amount for dinner: ");
             scanf("%lf", &dinner);
             if (breakfast < 0 || lunch < 0 || dinner < 0)
             {
@@ -355,7 +355,7 @@ double *calMealCost(int numOfDays, double time[2])
                 run = 1;
                 while (run == 1)
                 {
-                    printf("\nEnter amount for breakfast:");
+                    printf("\nEnter amount for breakfast: ");
                     scanf("%lf", &breakfast);
                     if (breakfast < 0)
                     {
@@ -376,9 +376,9 @@ double *calMealCost(int numOfDays, double time[2])
                 run = 1;
                 while (run == 1)
                 {
-                    printf("\nEnter amount for breakfast:");
+                    printf("\nEnter amount for breakfast: ");
                     scanf("%lf", &breakfast);
-                    printf("\nEnter amount for lunch:");
+                    printf("\nEnter amount for lunch: ");
                     scanf("%lf", &lunch);
                     if (breakfast < 0 || lunch < 0)
                     {
@@ -400,11 +400,11 @@ double *calMealCost(int numOfDays, double time[2])
                 run = 1;
                 while (run == 1)
                 {
-                    printf("\nEnter amount for breakfast:");
+                    printf("\nEnter amount for breakfast: ");
                     scanf("%lf", &breakfast);
-                    printf("\nEnter amount for lunch:");
+                    printf("\nEnter amount for lunch: ");
                     scanf("%lf", &lunch);
-                    printf("\nEnter amount for Dinner:");
+                    printf("\nEnter amount for dinner: ");
                     scanf("%lf", &dinner);
                     if (breakfast < 0 || lunch < 0 || dinner < 0)
                     {

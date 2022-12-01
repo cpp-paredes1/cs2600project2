@@ -48,7 +48,7 @@ int main(int argc, char const *argv[]) {
 	timesForMeals[1] = arriveTime[0];
 	double *tempMealExpenses = calMealCost(daysNum, timesForMeals);
 	double mealExpenses = tempMealExpenses[0] + tempMealExpenses[1];
-	printf("Meal expenses: %f\n", mealExpenses);
+	printf("Meal expenses: %f\n\n", mealExpenses);
 			//For Each Meal:
 				//Meal cost
 	
