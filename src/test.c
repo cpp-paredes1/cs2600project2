@@ -9,8 +9,8 @@ int printTest(char* text, int result) {
 
 // Call this function from main if first argument is "test"
 int test() {
-    testCarExpenses();
     printf("Performing unit tests...\n");
+    testCarExpenses();
     printf("---------------\n");
     int trueTest = printTest("This should pass", 1 == 1);
     int falseTest = printTest("This should fail", 1 == 2);
