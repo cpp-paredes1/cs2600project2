@@ -34,7 +34,7 @@ int main(int argc, char const *argv[]) {
 	double carExpenses = calculateCarExpenses(daysNum); //Takes care of rental, private, parking, and taxi
 	printf("Total cost of rentals, private vehicles, parking, and taxis: %f\n", carExpenses);
 		//Conference/Seminar registration fees
-	double regExpenses = calRegCost();
+	double regExpenses = regCost();
 	printf("Conference and Seminar registration fees: %f\n", regExpenses);
 		//Hotel Fees
 	double *tempHotelExpenses = hotelCost();

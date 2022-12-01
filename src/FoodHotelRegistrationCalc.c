@@ -3,7 +3,11 @@
 #include "input.h"
 #include "FoodHotelRegistrationCalc.h"
 //Conference or seminar registration fees 
-double calRegCost() {
+double calRegCost(double cost) {
+    return cost;
+}
+
+double regCost() {
 	double regFees = 0;
 	int run = 1;
 	while (run == 1) {
@@ -18,9 +22,25 @@ double calRegCost() {
 	}
 }
 
+double *calHotelCost(double cost) {
+    static double costs[2];
+	double totalCost;
+    if (cost <= 90)
+    {
+        costs[0] = cost;
+        costs[1] = 0;
+    }
+    else
+    {
+        costs[0] = cost;
+        totalCost = cost - 90;
+        costs[1] = totalCost;
+    }
+    return costs;
+}
+
 double *hotelCost() {
-	static double costs[2];
-	double cost, totalCost;
+	double cost;
 	int run = 1;
 	while (run == 1) {
 		printf("\nEnter hotel cost for one night:");
@@ -31,18 +51,7 @@ double *hotelCost() {
         }
         else
         {
-            if (cost <= 90)
-            {
-                costs[0] = cost;
-                costs[1] = 0;
-            }
-            else
-            {
-                costs[0] = cost;
-                totalCost = cost - 90;
-                costs[1] = totalCost;
-            }
-            return costs;
+            return calHotelCost(cost);
         }
 	}
 }

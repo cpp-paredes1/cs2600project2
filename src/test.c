@@ -26,7 +26,8 @@ int test() {
     printf("Performing unit tests...\n\n");
     int baseTest = printOverallTest("BASE TEST", testBase());
     int carExpensesTest = printOverallTest("CAR EXPENSE TESTS", testCarExpenses());
+    int foodHotelRegistrationTest = printOverallTest("FOOD/HOTEL/REGISTRATION TEST", testFoodHotelRegistrationExpenses());
 
-    int result = baseTest && carExpensesTest;
+    int result = baseTest && carExpensesTest && foodHotelRegistrationTest;
     return printOverallTest("OVERALL TEST", result);
 }
