@@ -20,7 +20,7 @@ int main(int argc, char const *argv[]) {
 		//Time of arrival (check)
 	int *arriveTime = timeInput("Enter the time of your arrival (XX:XX AM/PM): ");
 	printf("Departure time: %002d:%002d\n\n", arriveTime[0], arriveTime[1]);
-		//Airfare cost
+		//Airfare cost (check)
 		//Car rental costs (check)
 		//Miles driven in private vehicle (check)
 	double planeExpenses = calculatePlaneExpenses();
