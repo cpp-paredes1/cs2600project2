@@ -18,14 +18,14 @@ double calRegCost() {
 	}
 }
 
-double hotelCost() {
+double *hotelCost() {
 	static double costs[2];
 	double cost, totalCost;
 	int run = 1;
 	while (run == 1) {
 		printf("\nEnter hotel cost for one night:");
 		scanf("%lf", &cost);
-		if (cost <= 0)
+	if (cost <= 0)
         {
             printf("\nPlease enter a valid number (>0)!");
         }
